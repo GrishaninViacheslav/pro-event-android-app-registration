@@ -2,6 +2,9 @@ package ru.myproevent
 
 import android.app.Application
 import com.github.terrakok.cicerone.Cicerone
+import io.github.inflationx.calligraphy3.CalligraphyConfig
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor
+import io.github.inflationx.viewpump.ViewPump
 
 class App : Application() {
     // TODO: Вынести в Dagger
@@ -12,13 +15,19 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
-//        // TODO: Вынести в Dagger
-//        CalligraphyConfig.initDefault(
-//            CalligraphyConfig.Builder()
-//                .setDefaultFontPath(getString(R.string.default_font))
-//                .setFontAttrId(R.attr.fontPath)
-//                .build()
-//        )
+        // TODO: Вынести в Dagger
+        ViewPump.init(
+            ViewPump.builder()
+                .addInterceptor(
+                    CalligraphyInterceptor(
+                        CalligraphyConfig.Builder()
+                            .setDefaultFontPath(getString(R.string.default_font))
+                            .setFontAttrId(R.attr.fontPath)
+                            .build()
+                    )
+                )
+                .build()
+        )
     }
 
 

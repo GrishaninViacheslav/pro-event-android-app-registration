@@ -1,7 +1,9 @@
 package ru.myproevent.ui
 
+import android.content.Context
 import android.os.Bundle
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 import ru.myproevent.App
@@ -9,6 +11,7 @@ import ru.myproevent.R
 import ru.myproevent.databinding.ActivityMainBinding
 import ru.myproevent.ui.presenters.main.MainPresenter
 import ru.myproevent.ui.presenters.main.MainView
+
 
 class MainActivity : MvpAppCompatActivity(), MainView {
     // TODO: вынести в Dagger
@@ -19,9 +22,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
     private lateinit var view: ActivityMainBinding
 
-//    override fun attachBaseContext(newBase: Context?) {
-//        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
-//    }
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
