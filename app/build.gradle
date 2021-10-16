@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    // Default
+    // Default - то что положил Android Studio при создании проекта
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
@@ -53,16 +53,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    // Moxy
+    // Moxy - lifecycle MVP presenter-a
     implementation "com.github.moxy-community:moxy:2.1.2"
     kapt "com.github.moxy-community:moxy-compiler:2.1.2"
     implementation "com.github.moxy-community:moxy-ktx:2.1.2"
     implementation "com.github.moxy-community:moxy-androidx:2.1.2"
 
-    // Cicerone
+    // Cicerone - навигация
     implementation 'com.github.terrakok:cicerone:6.6'
 
-    // Calligraphy
+    // Calligraphy - изменения шрифта по умолчанию
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:2.0.3'
 }
