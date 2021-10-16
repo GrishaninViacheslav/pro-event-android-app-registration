@@ -1,0 +1,9 @@
+TODO:
+    - Вынести зависимости в Dagger
+    - Заменить содержимое splash_screen.xml
+    - Заменить значение colorPrimaryVariant в themes.xml
+    - Заменить содержимое fragment_authorization.xml
+
+Рефакторинг:
+    - Удалить из ресурсов неиспользуемые шрифты
+
