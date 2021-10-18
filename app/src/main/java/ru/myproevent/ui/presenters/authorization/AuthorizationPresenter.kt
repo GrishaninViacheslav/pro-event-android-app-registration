@@ -16,15 +16,15 @@ class AuthorizationPresenter(
 
     fun authorize(login: String, password: String) {
         fun repositoryGetKey(login: String, password: String): String? {
-            return if (false) {
+            return if (tries > 1) {
                 "apikey"
             } else {
                 tries++
                 null
             }
         }
-        repositoryGetKey(login, password)?.let { apikey ->
-            //router.navigateTo(screens.main(apikey))
+        repositoryGetKey(login, password)?.let {
+            router.replaceScreen(screens.home())
         } ?: run { viewState.authorizationDataInvalid() }
     }
 

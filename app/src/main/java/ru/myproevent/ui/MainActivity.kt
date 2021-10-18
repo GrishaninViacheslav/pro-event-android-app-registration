@@ -2,6 +2,8 @@ package ru.myproevent.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import moxy.MvpAppCompatActivity
@@ -40,6 +42,20 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun onPause() {
         super.onPause()
         App.instance.navigatorHolder.removeNavigator()
+    }
+
+    override fun hideBottomNavigation() {
+        if(view.bottomNavigation.visibility == GONE){
+            return
+        }
+        view.bottomNavigation.visibility = GONE
+    }
+
+    override fun showBottomNavigation() {
+        if(view.bottomNavigation.visibility == VISIBLE){
+            return
+        }
+        view.bottomNavigation.visibility = VISIBLE
     }
 
     override fun onBackPressed() {

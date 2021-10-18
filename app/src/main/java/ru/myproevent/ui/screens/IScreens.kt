@@ -4,4 +4,5 @@ import com.github.terrakok.cicerone.Screen
 
 interface IScreens {
     fun authorization(): Screen
+    fun home(): Screen
 }
