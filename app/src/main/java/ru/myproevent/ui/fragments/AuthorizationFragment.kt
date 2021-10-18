@@ -1,16 +1,17 @@
 package ru.myproevent.ui.fragments
 
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
-import ru.myproevent.App
 import ru.myproevent.databinding.FragmentAuthorizationBinding
 import ru.myproevent.ui.BackButtonListener
 import ru.myproevent.ui.presenters.authorization.AuthorizationPresenter
 import ru.myproevent.ui.presenters.authorization.AuthorizationView
+
 
 class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackButtonListener {
     private var _view: FragmentAuthorizationBinding? = null

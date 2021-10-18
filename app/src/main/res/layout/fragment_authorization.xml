@@ -80,12 +80,12 @@
 
             <com.google.android.material.textfield.TextInputLayout style="@style/TextInputLayoutStyle">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <ru.myproevent.ui.views.KeyboardAwareTextInputEditText
                     android:id="@+id/email_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Введите ваш e-mail"
-                    android:inputType="textPassword" />
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -115,7 +115,7 @@
                 app:endIconMode="password_toggle"
                 app:endIconTint="#CFCFE6">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <ru.myproevent.ui.views.KeyboardAwareTextInputEditText
                     android:id="@+id/password_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -141,7 +141,8 @@
             android:layout_height="56dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="168dp"
-            android:backgroundTint="?attr/colorPrimaryVariant"
+            android:backgroundTint="@color/PE_peach_04"
+            app:rippleColor="@color/PE_bright_red"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/authorization_confirm"

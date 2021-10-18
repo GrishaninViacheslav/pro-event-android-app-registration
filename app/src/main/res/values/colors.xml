@@ -11,4 +11,5 @@
     <color name="PE_bright_red">#FFFE3F19</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#CFCFE6</color>
     <color name="PE_blue_gray_03">#9898B2</color>
+    <color name="PE_peach_04">#FF8F79</color>
 </resources>
