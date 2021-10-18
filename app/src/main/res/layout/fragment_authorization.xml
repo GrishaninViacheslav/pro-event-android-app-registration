@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_gravity="center"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/body"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:maxWidth="360dp">
+        android:maxWidth="360dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Space
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             tools:ignore="MissingPrefix" />
 
         <LinearLayout
-            android:id="@+id/email_input"
+            android:id="@+id/email_input_container"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -83,7 +83,9 @@
                 android:textColor="@color/PE_bright_red"
                 android:textSize="16sp" />
 
-            <com.google.android.material.textfield.TextInputLayout style="@style/TextInputLayoutStyle">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input"
+                style="@style/TextInputLayoutStyle">
 
                 <ru.myproevent.ui.views.KeyboardAwareTextInputEditText
                     android:id="@+id/email_edit"
@@ -95,7 +97,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/password_input"
+            android:id="@+id/password_input_container"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -104,7 +106,7 @@
             app:endIconMode="password_toggle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email_input">
+            app:layout_constraintTop_toBottomOf="@id/email_input_container">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -116,6 +118,7 @@
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_input"
                 style="@style/TextInputLayoutStyle"
                 app:endIconMode="password_toggle"
                 app:endIconTint="#CFCFE6">
@@ -127,15 +130,6 @@
                     android:hint="Введите ваш e-mail"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/authorization_data_invalid"
-                android:textColor="#ff0000"
-                android:textSize="12sp" />
         </LinearLayout>
 
 
@@ -147,7 +141,6 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="168dp"
             android:backgroundTint="@color/PE_peach_04"
-            app:rippleColor="@color/PE_bright_red"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/authorization_confirm"
@@ -156,7 +149,8 @@
             app:cornerRadius="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email_input" />
+            app:layout_constraintTop_toBottomOf="@id/email_input_container"
+            app:rippleColor="@color/PE_bright_red" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -169,18 +163,18 @@
         android:textColor="@color/PE_blue_gray_03"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
-        android:layout_marginBottom="40dp"
         android:id="@+id/registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/registration"
         android:textColor="@color/PE_bright_red"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
