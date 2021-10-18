@@ -1,6 +1,7 @@
 package ru.myproevent.ui.fragments
 
 import android.content.res.ColorStateList
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -62,7 +63,7 @@ class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackBut
                     emailInvalidError = false
                     emailInput.setBoxStrokeColorStateList(colorState)
 
-                    if(!passwordInvalidError){
+                    if (!passwordInvalidError) {
                         view.errorMessage.visibility = GONE
                     }
                 }
@@ -72,9 +73,23 @@ class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackBut
                     passwordInvalidError = false
                     passwordInput.setBoxStrokeColorStateList(colorState)
 
-                    if(!emailInvalidError){
+                    if (!emailInvalidError) {
                         view.errorMessage.visibility = GONE
                     }
+
+                    passwordInput.setEndIconTintList(
+                        ColorStateList(
+                            arrayOf(intArrayOf()),
+                            intArrayOf(requireContext().getColor(R.color.PE_blue_gray_04))
+                        )
+                    )
+                } else {
+                    passwordInput.setEndIconTintList(
+                        ColorStateList(
+                            arrayOf(intArrayOf()),
+                            intArrayOf(requireContext().getColor(R.color.PE_blue_gray_01))
+                        )
+                    )
                 }
             }
         }

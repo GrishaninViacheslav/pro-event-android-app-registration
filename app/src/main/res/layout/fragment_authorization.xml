@@ -121,7 +121,7 @@
                 android:id="@+id/password_input"
                 style="@style/TextInputLayoutStyle"
                 app:endIconMode="password_toggle"
-                app:endIconTint="#CFCFE6">
+                app:endIconTint="@color/PE_blue_gray_04">
 
                 <ru.myproevent.ui.views.KeyboardAwareTextInputEditText
                     android:id="@+id/password_edit"
