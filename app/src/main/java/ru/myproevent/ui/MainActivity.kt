@@ -33,15 +33,17 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         view = ActivityMainBinding.inflate(layoutInflater).apply {
-            home.setOnClickListener {
-                presenter.openHome()
-            }
+            // TODO: отрефакторить
+            home.setOnClickListener { presenter.openHome() }
+            homeHitArea.setOnClickListener { home.performClick() }
             contacts.setOnClickListener { presenter.openContacts() }
+            contactsHitArea.setOnClickListener { contacts.performClick() }
             chat.setOnClickListener { presenter.openChat() }
+            chatHitArea.setOnClickListener { chat.performClick() }
             events.setOnClickListener { presenter.openEvents() }
-            settings.setOnClickListener {
-                presenter.openSettings()
-            }
+            eventsHitArea.setOnClickListener { events.performClick() }
+            settings.setOnClickListener { presenter.openSettings() }
+            settingsHitArea.setOnClickListener { settings.performClick() }
         }
         setContentView(view.root)
     }
