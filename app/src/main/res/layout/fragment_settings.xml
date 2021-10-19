@@ -11,7 +11,7 @@
         android:layout_height="66dp"
         android:gravity="center_horizontal"
         android:paddingTop="40dp"
-        android:text="@string/home_title"
+        android:text="@string/settings_title"
         android:textColor="@color/PE_blue_gray_01"
         android:textSize="20sp"
         tools:ignore="MissingPrefix" />

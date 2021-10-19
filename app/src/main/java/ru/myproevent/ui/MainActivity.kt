@@ -1,6 +1,7 @@
 package ru.myproevent.ui
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -13,6 +14,7 @@ import ru.myproevent.R
 import ru.myproevent.databinding.ActivityMainBinding
 import ru.myproevent.ui.presenters.main.MainPresenter
 import ru.myproevent.ui.presenters.main.MainView
+import ru.myproevent.ui.presenters.main.Menu
 
 
 class MainActivity : MvpAppCompatActivity(), MainView {
@@ -30,7 +32,17 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        view = ActivityMainBinding.inflate(layoutInflater)
+        view = ActivityMainBinding.inflate(layoutInflater).apply {
+            home.setOnClickListener {
+                presenter.openHome()
+            }
+            contacts.setOnClickListener { presenter.openContacts() }
+            chat.setOnClickListener { presenter.openChat() }
+            events.setOnClickListener { presenter.openEvents() }
+            settings.setOnClickListener {
+                presenter.openSettings()
+            }
+        }
         setContentView(view.root)
     }
 
@@ -45,17 +57,56 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun hideBottomNavigation() {
-        if(view.bottomNavigation.visibility == GONE){
+        if (view.bottomNavigation.visibility == GONE) {
             return
         }
         view.bottomNavigation.visibility = GONE
     }
 
     override fun showBottomNavigation() {
-        if(view.bottomNavigation.visibility == VISIBLE){
+        if (view.bottomNavigation.visibility == VISIBLE) {
             return
         }
         view.bottomNavigation.visibility = VISIBLE
+    }
+
+    override fun selectItem(menu: Menu) {
+        presenter.itemSelected(menu)
+        with(view) {
+            val defaultColorState = ColorStateList(
+                arrayOf(intArrayOf()),
+                intArrayOf(applicationContext.getColor(R.color.PE_blue_gray_light))
+            )
+            home.backgroundTintList = defaultColorState
+            contacts.backgroundTintList = defaultColorState
+            chat.backgroundTintList = defaultColorState
+            events.backgroundTintList = defaultColorState
+            settings.backgroundTintList = defaultColorState
+
+            when (menu) {
+                Menu.HOME -> home.backgroundTintList = ColorStateList(
+                    arrayOf(intArrayOf()),
+                    intArrayOf(applicationContext.getColor(R.color.PE_peach_04))
+                )
+                Menu.CONTACTS -> contacts.backgroundTintList = ColorStateList(
+                    arrayOf(intArrayOf()),
+                    intArrayOf(applicationContext.getColor(R.color.PE_peach_04))
+                )
+                Menu.CHAT -> chat.backgroundTintList = ColorStateList(
+                    arrayOf(intArrayOf()),
+                    intArrayOf(applicationContext.getColor(R.color.PE_peach_04))
+                )
+                Menu.EVENTS -> events.backgroundTintList = ColorStateList(
+                    arrayOf(intArrayOf()),
+                    intArrayOf(applicationContext.getColor(R.color.PE_peach_04))
+                )
+                Menu.SETTINGS -> settings.backgroundTintList = ColorStateList(
+                    arrayOf(intArrayOf()),
+                    intArrayOf(applicationContext.getColor(R.color.PE_peach_04))
+                )
+            }
+        }
+        showBottomNavigation()
     }
 
     override fun onBackPressed() {

@@ -9,4 +9,6 @@
     <string name="e_mail_input_title">E-mail</string>
     <string name="password_input_title">Пароль</string>
     <string name="authorization_data_invalid">Неправильный e-mail или пароль</string>
+    <string name="home_title">Главная</string>
+    <string name="settings_title">Настройки</string>
 </resources>
