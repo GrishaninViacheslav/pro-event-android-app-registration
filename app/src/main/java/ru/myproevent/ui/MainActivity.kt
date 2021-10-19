@@ -31,6 +31,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_Proevent_NoActionBar)
         super.onCreate(savedInstanceState)
         view = ActivityMainBinding.inflate(layoutInflater).apply {
             // TODO: отрефакторить

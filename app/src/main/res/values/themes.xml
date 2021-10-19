@@ -18,4 +18,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.Proevent.NoActionBar.Splash">
+        <item name="colorPrimaryVariant">#FF272858</item>
+        <item name="android:navigationBarColor">#FFFF8F79</item>
+        <item name="android:windowBackground">@drawable/splash_background_drawable</item>
+    </style>
 </resources>
