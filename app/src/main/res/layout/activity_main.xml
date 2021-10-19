@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -18,29 +19,134 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home" />
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contacts" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/PE_blue_gray_03" />
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chat" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/home"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_ellipse_26"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/PE_peach_04"
+                app:icon="@drawable/ic_home"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+        </FrameLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Events" />
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Settings" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/PE_blue_gray_03" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/contacts"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_ellipse_26"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/PE_blue_gray_light"
+                app:icon="@drawable/ic_contacts"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/PE_blue_gray_03" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chat"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_ellipse_26"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/PE_blue_gray_light"
+                app:icon="@drawable/ic_messages"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/PE_blue_gray_03" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/events"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_ellipse_26"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/PE_blue_gray_light"
+                app:icon="@drawable/ic_event"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/PE_blue_gray_03" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_ellipse_26"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/PE_blue_gray_light"
+                app:icon="@drawable/ic_settings"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+        </FrameLayout>
     </LinearLayout>
 </LinearLayout>
