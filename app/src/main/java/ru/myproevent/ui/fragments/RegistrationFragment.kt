@@ -30,7 +30,7 @@ class RegistrationFragment : MvpAppCompatFragment(), RegistrationView, BackButto
     fun provide() = presenter
 
     companion object {
-        fun newInstance() = HomeFragment()
+        fun newInstance() = RegistrationFragment()
     }
 
     private var proEventScreensComponent: ProEventScreensComponent? = null
@@ -50,7 +50,6 @@ class RegistrationFragment : MvpAppCompatFragment(), RegistrationView, BackButto
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (requireActivity() as MainView).selectItem(Menu.HOME)
         _view = FragmentRegistrationBinding.inflate(inflater, container, false)
         return view.root
     }

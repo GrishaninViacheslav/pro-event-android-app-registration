@@ -28,6 +28,10 @@ class AuthorizationPresenter @Inject constructor(
         } ?: run { viewState.authorizationDataInvalid() }
     }
 
+    fun openRegistration() {
+        router.navigateTo(screens.registration())
+    }
+
     fun backPressed(): Boolean {
         router.exit()
         return true

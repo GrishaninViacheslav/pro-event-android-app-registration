@@ -6,4 +6,5 @@ interface IScreens {
     fun authorization(): Screen
     fun home(): Screen
     fun settings(): Screen
+    fun registration(): Screen
 }

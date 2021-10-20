@@ -60,6 +60,10 @@ class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackBut
             authorizationConfirm.setOnClickListener {
                 presenter.authorize(emailEdit.text.toString(), passwordEdit.text.toString())
             }
+            registration.setOnClickListener {
+                presenter.openRegistration()
+            }
+
             val colorState = ColorStateList(
                 arrayOf(
                     intArrayOf(android.R.attr.state_active),
