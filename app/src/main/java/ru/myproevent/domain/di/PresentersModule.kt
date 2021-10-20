@@ -13,6 +13,6 @@ class PresentersModule {
         router: Router,
         screens: IScreens
     ): MainPresenter {
-        return MainPresenter(router, screens)
+        return MainPresenter(router)
     }
 }
