@@ -7,12 +7,11 @@ import ru.myproevent.ProEventApp
 import ru.myproevent.ui.screens.IScreens
 import ru.myproevent.ui.screens.Screens
 
-class MainPresenter(
-    // TODO: вынести в Dagger
-    private var router: Router,
-    private var screens: IScreens = Screens()
-) :
+class MainPresenter(private var router: Router) :
     MvpPresenter<MainView>() {
+
+    private var screens: IScreens = Screens()
+
     private var currActiveMenu = Menu.HOME
 
     override fun onFirstViewAttach() {
@@ -20,12 +19,12 @@ class MainPresenter(
         router.replaceScreen(screens.authorization())
     }
 
-    fun itemSelected(menu: Menu){
+    fun itemSelected(menu: Menu) {
         currActiveMenu = menu
     }
 
     fun openHome() {
-        if(currActiveMenu == Menu.HOME){
+        if (currActiveMenu == Menu.HOME) {
             return
         }
         currActiveMenu = Menu.HOME
@@ -45,7 +44,7 @@ class MainPresenter(
     }
 
     fun openSettings() {
-        if(currActiveMenu == Menu.SETTINGS){
+        if (currActiveMenu == Menu.SETTINGS) {
             return
         }
         currActiveMenu = Menu.SETTINGS

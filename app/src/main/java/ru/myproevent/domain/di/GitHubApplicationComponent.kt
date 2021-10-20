@@ -9,7 +9,7 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import ru.myproevent.ProEventApp
 
-@Component(modules = [AndroidInjectionModule::class, GitHubApplicationModule::class])
+@Component(modules = [AndroidInjectionModule::class, GitHubApplicationModule::class, FeatureContractModule::class])
 interface GitHubApplicationComponent : AndroidInjector<ProEventApp> {
 
     fun gitHubUsersComponent(): GitHubUsersComponent.Builder

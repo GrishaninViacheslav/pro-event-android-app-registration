@@ -9,7 +9,8 @@ import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
-import moxy.ktx.moxyPresenter
+import moxy.presenter.InjectPresenter
+import moxy.presenter.ProvidePresenter
 import ru.myproevent.R
 import ru.myproevent.databinding.ActivityMainBinding
 import ru.myproevent.ui.BackButtonListener
@@ -29,10 +30,13 @@ class MainActivity : AbsActivity(), MainView {
     @Inject
     lateinit var router: Router
 
-    // TODO: вынести в Dagger
-    private val presenter by moxyPresenter {
-        MainPresenter(router)
-    }
+    @Inject
+    @InjectPresenter
+    lateinit var presenter: MainPresenter
+
+    @ProvidePresenter
+    fun provide() = presenter
+
     private lateinit var view: ActivityMainBinding
 
     override fun attachBaseContext(newBase: Context) {
