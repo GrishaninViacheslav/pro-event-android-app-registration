@@ -5,12 +5,14 @@ import moxy.MvpPresenter
 import ru.myproevent.ui.presenters.authorization.AuthorizationView
 import ru.myproevent.ui.screens.IScreens
 import ru.myproevent.ui.screens.Screens
+import javax.inject.Inject
 
-class HomePresenter(
-    // TODO: вынести в Dagger
+class HomePresenter @Inject constructor(
     private var router: Router,
-    private var screens: IScreens = Screens()
 ) : MvpPresenter<AuthorizationView>() {
+    // TODO: вынести в Dagger
+    private var screens: IScreens = Screens()
+
     fun backPressed(): Boolean {
         router.exit()
         return true
