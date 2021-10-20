@@ -6,10 +6,9 @@ import moxy.MvpPresenter
 import ru.myproevent.ProEventApp
 import ru.myproevent.ui.screens.IScreens
 import ru.myproevent.ui.screens.Screens
+import javax.inject.Inject
 
-class MainPresenter(private var router: Router) :
-    MvpPresenter<MainView>() {
-
+class MainPresenter @Inject constructor(private var router: Router) : MvpPresenter<MainView>() {
     private var screens: IScreens = Screens()
 
     private var currActiveMenu = Menu.HOME

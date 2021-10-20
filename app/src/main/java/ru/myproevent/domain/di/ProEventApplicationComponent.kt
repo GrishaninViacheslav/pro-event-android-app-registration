@@ -9,7 +9,7 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import ru.myproevent.ProEventApp
 
-@Component(modules = [AndroidInjectionModule::class, ProEventApplicationModule::class, PresentersModule::class])
+@Component(modules = [AndroidInjectionModule::class, ProEventApplicationModule::class])
 interface ProEventApplicationComponent : AndroidInjector<ProEventApp> {
 
     fun gitHubUsersComponent(): ProEventScreensComponent.Builder
