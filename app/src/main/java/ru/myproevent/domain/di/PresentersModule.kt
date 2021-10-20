@@ -9,7 +9,10 @@ import ru.myproevent.ui.screens.IScreens
 @Module
 class PresentersModule {
     @Provides
-    fun providesFeaturePresenter(router: Router, screens: IScreens): MainPresenter {
+    fun providesFeaturePresenter(
+        router: Router,
+        screens: IScreens
+    ): MainPresenter {
         return MainPresenter(router, screens)
     }
 }

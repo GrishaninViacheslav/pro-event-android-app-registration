@@ -41,7 +41,7 @@ class SettingsFragment : MvpAppCompatFragment(), SettingsView, BackButtonListene
         proEventScreensComponent =
             (requireActivity().application as? ProEventApp)
                 ?.proEventApplicationComponent
-                ?.gitHubUsersComponent()
+                ?.proEventScreensComponent()
                 ?.build()
                 ?.also { it.inject(this) }
     }

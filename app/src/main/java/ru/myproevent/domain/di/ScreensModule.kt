@@ -10,5 +10,6 @@ import javax.inject.Singleton
 class ScreensModule {
     @Singleton
     @Provides
-    fun provideScreens(): IScreens = Screens()
+    fun provideScreens(): IScreens
+    = Screens()
 }

@@ -41,7 +41,7 @@ class HomeFragment : MvpAppCompatFragment(), HomeView, BackButtonListener {
         proEventScreensComponent =
             (requireActivity().application as? ProEventApp)
                 ?.proEventApplicationComponent
-                ?.gitHubUsersComponent()
+                ?.proEventScreensComponent()
                 ?.build()
                 ?.also { it.inject(this) }
     }

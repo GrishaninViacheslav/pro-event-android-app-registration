@@ -5,7 +5,11 @@ import ru.myproevent.ui.fragments.AuthorizationFragment
 import ru.myproevent.ui.fragments.HomeFragment
 import ru.myproevent.ui.fragments.SettingsFragment
 
-@Subcomponent(modules = [ScreensModule::class, PresentersModule::class])
+@Subcomponent(
+    modules = [
+        ScreensModule::class,
+        PresentersModule::class]
+)
 interface ProEventScreensComponent {
 
     fun inject(authorizationFragment: AuthorizationFragment)

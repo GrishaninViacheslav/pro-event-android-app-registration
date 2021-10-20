@@ -7,7 +7,10 @@ import ru.myproevent.ProEventApp
 import ru.myproevent.ui.screens.IScreens
 import javax.inject.Inject
 
-class MainPresenter @Inject constructor(private var router: Router, private var screens: IScreens) : MvpPresenter<MainView>() {
+class MainPresenter @Inject constructor(
+    private var router: Router,
+    private var screens: IScreens
+) : MvpPresenter<MainView>() {
     private var currActiveMenu = Menu.HOME
 
     override fun onFirstViewAttach() {

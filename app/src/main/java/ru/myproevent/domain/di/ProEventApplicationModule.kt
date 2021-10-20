@@ -4,7 +4,10 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import ru.myproevent.ui.activity.MainActivity
 
-@Module(subcomponents = [ProEventScreensComponent::class])
+@Module(
+    subcomponents = [
+        ProEventScreensComponent::class]
+)
 interface ProEventApplicationModule {
 
     @ContributesAndroidInjector
