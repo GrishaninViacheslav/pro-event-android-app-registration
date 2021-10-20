@@ -6,7 +6,7 @@ import dagger.Provides
 import ru.myproevent.ui.presenters.main.MainPresenter
 
 @Module
-class FeatureContractModule {
+class PresentersModule {
     @Provides
     fun providesFeaturePresenter(router: Router): MainPresenter {
         return MainPresenter(router)

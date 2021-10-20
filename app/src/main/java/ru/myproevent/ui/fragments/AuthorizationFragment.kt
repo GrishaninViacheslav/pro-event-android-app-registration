@@ -14,7 +14,7 @@ import moxy.ktx.moxyPresenter
 import ru.myproevent.ProEventApp
 import ru.myproevent.R
 import ru.myproevent.databinding.FragmentAuthorizationBinding
-import ru.myproevent.domain.di.GitHubUsersComponent
+import ru.myproevent.domain.di.ProEventScreensComponent
 import ru.myproevent.ui.BackButtonListener
 import ru.myproevent.ui.presenters.authorization.AuthorizationPresenter
 import ru.myproevent.ui.presenters.authorization.AuthorizationView
@@ -39,14 +39,14 @@ class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackBut
         fun newInstance() = AuthorizationFragment()
     }
 
-    private var gitHubUsersComponent: GitHubUsersComponent? = null
+    private var proEventScreensComponent: ProEventScreensComponent? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        gitHubUsersComponent =
+        proEventScreensComponent =
             (requireActivity().application as? ProEventApp)
-                ?.gitHubApplicationComponent
+                ?.proEventApplicationComponent
                 ?.gitHubUsersComponent()
                 ?.build()
                 ?.also { it.inject(this) }

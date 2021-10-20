@@ -6,8 +6,8 @@ import dagger.android.DaggerApplication
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
 import io.github.inflationx.viewpump.ViewPump
-import ru.myproevent.domain.di.DaggerGitHubApplicationComponent
-import ru.myproevent.domain.di.GitHubApplicationComponent
+import ru.myproevent.domain.di.DaggerProEventApplicationComponent
+import ru.myproevent.domain.di.ProEventApplicationComponent
 
 class ProEventApp : DaggerApplication() {
     companion object {
@@ -17,10 +17,10 @@ class ProEventApp : DaggerApplication() {
     }
 
     override fun applicationInjector(): AndroidInjector<ProEventApp> =
-        gitHubApplicationComponent
+        proEventApplicationComponent
 
-    val gitHubApplicationComponent: GitHubApplicationComponent by lazy {
-        DaggerGitHubApplicationComponent
+    val proEventApplicationComponent: ProEventApplicationComponent by lazy {
+        DaggerProEventApplicationComponent
             .builder()
             .withContext(applicationContext)
             .apply {

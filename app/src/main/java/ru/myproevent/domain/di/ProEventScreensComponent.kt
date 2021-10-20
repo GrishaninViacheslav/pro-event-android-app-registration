@@ -5,8 +5,8 @@ import ru.myproevent.ui.fragments.AuthorizationFragment
 import ru.myproevent.ui.fragments.HomeFragment
 import ru.myproevent.ui.fragments.SettingsFragment
 
-@Subcomponent(modules = [GitHubUsersModule::class])
-interface GitHubUsersComponent {
+@Subcomponent
+interface ProEventScreensComponent {
 
     fun inject(authorizationFragment: AuthorizationFragment)
     fun inject(homeFragment: HomeFragment)
@@ -15,7 +15,7 @@ interface GitHubUsersComponent {
     @Subcomponent.Builder
     interface Builder {
 
-        fun build(): GitHubUsersComponent
+        fun build(): ProEventScreensComponent
 
     }
 

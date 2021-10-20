@@ -9,10 +9,10 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import ru.myproevent.ProEventApp
 
-@Component(modules = [AndroidInjectionModule::class, GitHubApplicationModule::class, FeatureContractModule::class])
-interface GitHubApplicationComponent : AndroidInjector<ProEventApp> {
+@Component(modules = [AndroidInjectionModule::class, ProEventApplicationModule::class, PresentersModule::class])
+interface ProEventApplicationComponent : AndroidInjector<ProEventApp> {
 
-    fun gitHubUsersComponent(): GitHubUsersComponent.Builder
+    fun gitHubUsersComponent(): ProEventScreensComponent.Builder
 
     @Component.Builder
     interface Builder {
@@ -26,7 +26,7 @@ interface GitHubApplicationComponent : AndroidInjector<ProEventApp> {
         @BindsInstance
         fun withNavigatorHolder(navigatorHolder: NavigatorHolder): Builder
 
-        fun build(): GitHubApplicationComponent
+        fun build(): ProEventApplicationComponent
     }
 
 }
