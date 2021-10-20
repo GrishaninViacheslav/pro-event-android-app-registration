@@ -4,7 +4,9 @@ import dagger.Subcomponent
 import ru.myproevent.ui.fragments.AuthorizationFragment
 import ru.myproevent.ui.fragments.HomeFragment
 import ru.myproevent.ui.fragments.SettingsFragment
+import javax.inject.Singleton
 
+@Singleton
 @Subcomponent(
     modules = [
         ScreensModule::class,

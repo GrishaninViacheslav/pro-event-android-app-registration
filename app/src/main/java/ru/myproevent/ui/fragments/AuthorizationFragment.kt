@@ -8,9 +8,9 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import com.github.terrakok.cicerone.Router
 import moxy.MvpAppCompatFragment
-import moxy.ktx.moxyPresenter
+import moxy.presenter.InjectPresenter
+import moxy.presenter.ProvidePresenter
 import ru.myproevent.ProEventApp
 import ru.myproevent.R
 import ru.myproevent.databinding.FragmentAuthorizationBinding
@@ -29,11 +29,11 @@ class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackBut
     private var passwordInvalidError = false
 
     @Inject
-    lateinit var router: Router
+    @InjectPresenter
+    lateinit var presenter: AuthorizationPresenter
 
-    private val presenter: AuthorizationPresenter by moxyPresenter {
-        AuthorizationPresenter(router)
-    }
+    @ProvidePresenter
+    fun provide() = presenter
 
     companion object {
         fun newInstance() = AuthorizationFragment()
