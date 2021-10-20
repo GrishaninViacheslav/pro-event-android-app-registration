@@ -1,28 +1,49 @@
 package ru.myproevent.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.github.terrakok.cicerone.Router
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import ru.myproevent.ProEventApp
 import ru.myproevent.databinding.FragmentSettingsBinding
+import ru.myproevent.domain.di.GitHubUsersComponent
 import ru.myproevent.ui.BackButtonListener
 import ru.myproevent.ui.presenters.main.MainView
 import ru.myproevent.ui.presenters.main.Menu
 import ru.myproevent.ui.presenters.presenter.SettingsPresenter
 import ru.myproevent.ui.presenters.presenter.SettingsView
+import javax.inject.Inject
 
 class SettingsFragment : MvpAppCompatFragment(), SettingsView, BackButtonListener {
     private var _view: FragmentSettingsBinding? = null
     private val view get() = _view!!
 
+    @Inject
+    lateinit var router: Router
+
     private val presenter: SettingsPresenter by moxyPresenter {
-        SettingsPresenter()
+        SettingsPresenter(router)
     }
 
     companion object {
         fun newInstance() = SettingsFragment()
+    }
+
+    private var gitHubUsersComponent: GitHubUsersComponent? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        gitHubUsersComponent =
+            (requireActivity().application as? ProEventApp)
+                ?.gitHubApplicationComponent
+                ?.gitHubUsersComponent()
+                ?.build()
+                ?.also { it.inject(this) }
     }
 
     override fun onCreateView(

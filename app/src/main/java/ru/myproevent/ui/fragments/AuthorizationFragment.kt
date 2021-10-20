@@ -1,5 +1,6 @@
 package ru.myproevent.ui.fragments
 
+import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +8,17 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import com.github.terrakok.cicerone.Router
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import ru.myproevent.ProEventApp
 import ru.myproevent.R
 import ru.myproevent.databinding.FragmentAuthorizationBinding
+import ru.myproevent.domain.di.GitHubUsersComponent
 import ru.myproevent.ui.BackButtonListener
 import ru.myproevent.ui.presenters.authorization.AuthorizationPresenter
 import ru.myproevent.ui.presenters.authorization.AuthorizationView
+import javax.inject.Inject
 
 
 class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackButtonListener {
@@ -23,12 +28,28 @@ class AuthorizationFragment : MvpAppCompatFragment(), AuthorizationView, BackBut
     private var emailInvalidError = false
     private var passwordInvalidError = false
 
+    @Inject
+    lateinit var router: Router
+
     private val presenter: AuthorizationPresenter by moxyPresenter {
-        AuthorizationPresenter()
+        AuthorizationPresenter(router)
     }
 
     companion object {
         fun newInstance() = AuthorizationFragment()
+    }
+
+    private var gitHubUsersComponent: GitHubUsersComponent? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        gitHubUsersComponent =
+            (requireActivity().application as? ProEventApp)
+                ?.gitHubApplicationComponent
+                ?.gitHubUsersComponent()
+                ?.build()
+                ?.also { it.inject(this) }
     }
 
     override fun onCreateView(

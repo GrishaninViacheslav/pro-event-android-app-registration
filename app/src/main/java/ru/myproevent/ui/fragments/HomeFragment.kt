@@ -1,28 +1,49 @@
 package ru.myproevent.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.github.terrakok.cicerone.Router
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import ru.myproevent.ProEventApp
 import ru.myproevent.databinding.FragmentHomeBinding
+import ru.myproevent.domain.di.GitHubUsersComponent
 import ru.myproevent.ui.BackButtonListener
 import ru.myproevent.ui.presenters.home.HomePresenter
 import ru.myproevent.ui.presenters.home.HomeView
 import ru.myproevent.ui.presenters.main.MainView
 import ru.myproevent.ui.presenters.main.Menu
+import javax.inject.Inject
 
 class HomeFragment : MvpAppCompatFragment(), HomeView, BackButtonListener {
     private var _view: FragmentHomeBinding? = null
     private val view get() = _view!!
 
+    @Inject
+    lateinit var router: Router
+
     private val presenter: HomePresenter by moxyPresenter {
-        HomePresenter()
+        HomePresenter(router)
     }
 
     companion object {
         fun newInstance() = HomeFragment()
+    }
+
+    private var gitHubUsersComponent: GitHubUsersComponent? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        gitHubUsersComponent =
+            (requireActivity().application as? ProEventApp)
+                ?.gitHubApplicationComponent
+                ?.gitHubUsersComponent()
+                ?.build()
+                ?.also { it.inject(this) }
     }
 
     override fun onCreateView(

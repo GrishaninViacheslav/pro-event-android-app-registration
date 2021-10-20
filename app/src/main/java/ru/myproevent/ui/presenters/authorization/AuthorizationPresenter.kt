@@ -2,13 +2,12 @@ package ru.myproevent.ui.presenters.authorization
 
 import com.github.terrakok.cicerone.Router
 import moxy.MvpPresenter
-import ru.myproevent.App
 import ru.myproevent.ui.screens.IScreens
 import ru.myproevent.ui.screens.Screens
 
 class AuthorizationPresenter(
     // TODO: вынести в Dagger
-    private var router: Router = App.instance.router,
+    private var router: Router,
     private var screens: IScreens = Screens()
 ) : MvpPresenter<AuthorizationView>() {
 

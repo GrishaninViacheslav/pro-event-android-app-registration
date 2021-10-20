@@ -1,28 +1,37 @@
-package ru.myproevent.ui
+package ru.myproevent.ui.activity
 
 import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
-import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
-import ru.myproevent.App
 import ru.myproevent.R
 import ru.myproevent.databinding.ActivityMainBinding
+import ru.myproevent.ui.BackButtonListener
 import ru.myproevent.ui.presenters.main.MainPresenter
 import ru.myproevent.ui.presenters.main.MainView
 import ru.myproevent.ui.presenters.main.Menu
+import javax.inject.Inject
 
 
-class MainActivity : MvpAppCompatActivity(), MainView {
-    // TODO: вынести в Dagger
+class MainActivity : AbsActivity(), MainView {
+
     private val navigator = AppNavigator(this, R.id.container)
 
+    @Inject
+    lateinit var navigatorHolder: NavigatorHolder
+
+    @Inject
+    lateinit var router: Router
+
+    // TODO: вынести в Dagger
     private val presenter by moxyPresenter {
-        MainPresenter()
+        MainPresenter(router)
     }
     private lateinit var view: ActivityMainBinding
 
@@ -51,12 +60,12 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onResumeFragments() {
         super.onResumeFragments()
-        App.instance.navigatorHolder.setNavigator(navigator)
+        navigatorHolder.setNavigator(navigator)
     }
 
     override fun onPause() {
+        navigatorHolder.removeNavigator()
         super.onPause()
-        App.instance.navigatorHolder.removeNavigator()
     }
 
     override fun hideBottomNavigation() {

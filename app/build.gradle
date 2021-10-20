@@ -53,6 +53,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+    // Dagger 2 - управление зависимостями
+    implementation "com.google.dagger:dagger:2.37"
+    implementation "com.google.dagger:dagger-android:2.37"
+    implementation "com.google.dagger:dagger-android-support:2.37"
+    kapt "com.google.dagger:dagger-compiler:2.37"
+    kapt "com.google.dagger:dagger-android-processor:2.37"
+
     // Moxy - lifecycle MVP presenter-a
     implementation "com.github.moxy-community:moxy:2.1.2"
     kapt "com.github.moxy-community:moxy-compiler:2.1.2"
