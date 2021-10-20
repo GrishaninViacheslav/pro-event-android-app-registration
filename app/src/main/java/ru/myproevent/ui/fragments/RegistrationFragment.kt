@@ -9,28 +9,28 @@ import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import ru.myproevent.ProEventApp
-import ru.myproevent.databinding.FragmentSettingsBinding
+import ru.myproevent.databinding.FragmentRegistrationBinding
 import ru.myproevent.domain.di.ProEventScreensComponent
 import ru.myproevent.ui.BackButtonListener
 import ru.myproevent.ui.presenters.main.MainView
 import ru.myproevent.ui.presenters.main.Menu
-import ru.myproevent.ui.presenters.settings.SettingsPresenter
-import ru.myproevent.ui.presenters.settings.SettingsView
+import ru.myproevent.ui.presenters.registration.RegistrationPresenter
+import ru.myproevent.ui.presenters.registration.RegistrationView
 import javax.inject.Inject
 
-class SettingsFragment : MvpAppCompatFragment(), SettingsView, BackButtonListener {
-    private var _view: FragmentSettingsBinding? = null
+class RegistrationFragment : MvpAppCompatFragment(), RegistrationView, BackButtonListener {
+    private var _view: FragmentRegistrationBinding? = null
     private val view get() = _view!!
 
     @Inject
     @InjectPresenter
-    lateinit var presenter: SettingsPresenter
+    lateinit var presenter: RegistrationPresenter
 
     @ProvidePresenter
     fun provide() = presenter
 
     companion object {
-        fun newInstance() = SettingsFragment()
+        fun newInstance() = HomeFragment()
     }
 
     private var proEventScreensComponent: ProEventScreensComponent? = null
@@ -50,8 +50,8 @@ class SettingsFragment : MvpAppCompatFragment(), SettingsView, BackButtonListene
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (requireActivity() as MainView).selectItem(Menu.SETTINGS)
-        _view = FragmentSettingsBinding.inflate(inflater, container, false)
+        (requireActivity() as MainView).selectItem(Menu.HOME)
+        _view = FragmentRegistrationBinding.inflate(inflater, container, false)
         return view.root
     }
 

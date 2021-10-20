@@ -6,7 +6,8 @@ import dagger.Provides
 import ru.myproevent.ui.presenters.authorization.AuthorizationPresenter
 import ru.myproevent.ui.presenters.home.HomePresenter
 import ru.myproevent.ui.presenters.main.MainPresenter
-import ru.myproevent.ui.presenters.presenter.SettingsPresenter
+import ru.myproevent.ui.presenters.registration.RegistrationPresenter
+import ru.myproevent.ui.presenters.settings.SettingsPresenter
 import ru.myproevent.ui.screens.IScreens
 
 @Module
@@ -41,5 +42,13 @@ class PresentersModule {
         screens: IScreens
     ): SettingsPresenter {
         return SettingsPresenter(router)
+    }
+
+    @Provides
+    fun providesRegistrationPresenter(
+        router: Router,
+        screens: IScreens
+    ): RegistrationPresenter {
+        return RegistrationPresenter(router)
     }
 }
