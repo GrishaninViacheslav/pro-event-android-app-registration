@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.github.terrakok.cicerone.NavigatorHolder
-import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import moxy.presenter.InjectPresenter
@@ -26,9 +25,6 @@ class MainActivity : AbsActivity(), MainView {
 
     @Inject
     lateinit var navigatorHolder: NavigatorHolder
-
-    @Inject
-    lateinit var router: Router
 
     @Inject
     @InjectPresenter
