@@ -27,19 +27,19 @@ class PresentersModule {
         return AuthorizationPresenter(router)
     }
 
-//    @Provides
-//    fun providesHomePresenter(
-//        router: Router,
-//        screens: IScreens
-//    ): HomePresenter {
-//        return HomePresenter(router)
-//    }
-//
-//    @Provides
-//    fun providesSettingsPresenter(
-//        router: Router,
-//        screens: IScreens
-//    ): SettingsPresenter {
-//        return SettingsPresenter(router)
-//    }
+    @Provides
+    fun providesHomePresenter(
+        router: Router,
+        screens: IScreens
+    ): HomePresenter {
+        return HomePresenter(router)
+    }
+
+    @Provides
+    fun providesSettingsPresenter(
+        router: Router,
+        screens: IScreens
+    ): SettingsPresenter {
+        return SettingsPresenter(router)
+    }
 }

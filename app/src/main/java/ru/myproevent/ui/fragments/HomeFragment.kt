@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.terrakok.cicerone.Router
 import moxy.MvpAppCompatFragment
-import moxy.ktx.moxyPresenter
+import moxy.presenter.InjectPresenter
+import moxy.presenter.ProvidePresenter
 import ru.myproevent.ProEventApp
 import ru.myproevent.databinding.FragmentHomeBinding
 import ru.myproevent.domain.di.ProEventScreensComponent
@@ -23,11 +23,11 @@ class HomeFragment : MvpAppCompatFragment(), HomeView, BackButtonListener {
     private val view get() = _view!!
 
     @Inject
-    lateinit var router: Router
+    @InjectPresenter
+    lateinit var presenter: HomePresenter
 
-    private val presenter: HomePresenter by moxyPresenter {
-        HomePresenter(router)
-    }
+    @ProvidePresenter
+    fun provide() = presenter
 
     companion object {
         fun newInstance() = HomeFragment()
