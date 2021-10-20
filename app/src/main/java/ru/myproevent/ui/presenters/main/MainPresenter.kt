@@ -5,12 +5,9 @@ import com.github.terrakok.cicerone.Router
 import moxy.MvpPresenter
 import ru.myproevent.ProEventApp
 import ru.myproevent.ui.screens.IScreens
-import ru.myproevent.ui.screens.Screens
 import javax.inject.Inject
 
-class MainPresenter @Inject constructor(private var router: Router) : MvpPresenter<MainView>() {
-    private var screens: IScreens = Screens()
-
+class MainPresenter @Inject constructor(private var router: Router, private var screens: IScreens) : MvpPresenter<MainView>() {
     private var currActiveMenu = Menu.HOME
 
     override fun onFirstViewAttach() {
